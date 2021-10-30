@@ -1,0 +1,46 @@
+body {
+  background-color:#2e2e2e; 
+}
+
+
+.typetext {
+  font-family:arial,helvetica,sans-serif;
+  color:#ffffff;
+}
+
+h1 {
+  animation:type 160s steps(2878);
+  overflow:hidden;
+  white-space:nowrap;
+  font-family:arial,helvetica, sans-serif;
+  letter-spacing:2px;
+  width:2878ch;
+}
+
+@keyframes type {
+  0% {
+    width:0ch;
+  }
+  100% 
+    width: 2878ch;
+  }
+}
+
+.horizontal-center {
+  margin:0;
+  posiion:absolute;
+  top:50%;
+  transform:translate(0%, -50%);
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+		border-collapse;
+}
+
+a:link {  text-decoration: none}
+
