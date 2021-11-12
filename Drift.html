@@ -14,38 +14,38 @@
  <div class="container" id="xscroll">
   <div></div>
   <!--<div class="horizontal-center">-->
-  <table style="width:100%">
+  <table>
     <tbody><tr>
-      <td><img src="./Drift_files/IMG_0118.1.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3863.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3877.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3876.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3873.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3870.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3818.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3819.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3821.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3829.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3854.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3855.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_9249.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3853.jpg" height="500"></td> 
-      <td><img src="./Drift_files/IMG_1029.jpg" height="500"></td> 
-      <td><img src="./Drift_files/IMG_3857.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3861.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3858.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3859.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3852.jpg" height="500"></td> 
-      <td><img src="./Drift_files/IMG_3849.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3847.jpg" height="500"></td>
-      <td><img src="./Drift_files/IMG_3845.2.jpg" height="500"></td>
+    <td><img src="./Drift_files/IMG_0118.1.jpg"></td>
+      <td><img src="./Drift_files/IMG_3863.jpg"></td>
+      <td><img src="./Drift_files/IMG_3877.jpg"></td>
+      <td><img src="./Drift_files/IMG_3876.jpg"></td>
+      <td><img src="./Drift_files/IMG_3873.jpg"></td>
+      <td><img src="./Drift_files/IMG_3870.jpg"></td>
+      <td><img src="./Drift_files/IMG_3818.jpg"></td>
+      <td><img src="./Drift_files/IMG_3819.jpg"></td>
+      <td><img src="./Drift_files/IMG_3821.jpg"></td>
+      <td><img src="./Drift_files/IMG_3829.jpg"></td>
+      <td><img src="./Drift_files/IMG_3854.jpg"></td>
+      <td><img src="./Drift_files/IMG_3855.jpg"></td>
+      <td><img src="./Drift_files/IMG_9249.jpg"></td>
+      <td><img src="./Drift_files/IMG_3853.jpg"></td>
+      <td><img src="./Drift_files/IMG_1029.jpg"></td>
+      <td><img src="./Drift_files/IMG_3857.jpg"></td>
+      <td><img src="./Drift_files/IMG_3861.jpg"></td>
+      <td><img src="./Drift_files/IMG_3858.jpg"></td>
+      <td><img src="./Drift_files/IMG_3859.jpg"></td>
+      <td><img src="./Drift_files/IMG_3852.jpg"></td>
+      <td><img src="./Drift_files/IMG_3849.jpg"></td>
+      <td><img src="./Drift_files/IMG_3847.jpg"></td>
+    <td><img src="./Drift_files/IMG_3845.2.jpg"></td>
     </tr>
   </tbody></table> 
   <p style="text-align:left"></p><h2 style="color:#848484; font-family: Arial,Helvetica,sans-serif;">
     &nbsp; scroll this way &gt;</h2>
 <p></p>
 </div> 
- <div class="typetext">
+ <div class="typetext" id="text">
   <h1>&nbsp; &nbsp;In early March I took a walk along
     the North Shore of Staten Island feeling anxious and sensing this might be my last tour of the neighborhood for a while. I walked down the steep hill of Wall Street, past the Staten Island Yankees Stadium to Bank Street, which runs along New York Bay. From there, you can see the southern tip of Manhattan, New Jersey, Brooklyn, and the end journeys of both the Hudson and the East Rivers. They built a mall between Bank Street and the Ferry Terminal but it had to close down due to COVID before it ever really got off the ground. Lots of empty architecture. From the mall I entered the Terminal and took the stairs at the far end to Level 2, a shortcut to the other side of the building. 
 
@@ -86,6 +86,26 @@
               window.attachEvent("onmousewheel", scrollHorizontally);
           }
       })();
+
+      const RESET_INTERVAL = 30000;
+
+      let timer = setTimeout(reset_page, RESET_INTERVAL);
+      let text = document.getElementById("text");
+      console.log(text);
+
+      function reset_page() {
+        console.log("reset");
+        window.scrollTo(0, 0);
+        text.classList.remove("typetext");
+        text.offsetWidth;
+        text.classList.add("typetext");
+        timer = setTimeout(reset_page, RESET_INTERVAL);
+      }
+
+      window.addEventListener("scroll", () => {
+        clearInterval(timer);
+        timer = setTimeout(reset_page, RESET_INTERVAL);
+      });
 
     </script>
 
